@@ -1,7 +1,5 @@
-import mongoose, { Document, Schema } from 'mongoose';
-import { IGame } from './Game.types';
-
-export interface MongooseIGame extends IGame, Document {}
+import mongoose, { Schema } from 'mongoose';
+import { MongooseIGame } from './game.types';
 
 const GameSchema = new Schema<MongooseIGame>(
   {
@@ -12,4 +10,4 @@ const GameSchema = new Schema<MongooseIGame>(
   { timestamps: true },
 );
 
-export default mongoose.model<MongooseIGame>('Game', GameSchema);
+export const GameModel = mongoose.model<MongooseIGame>('Game', GameSchema);

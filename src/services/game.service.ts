@@ -1,17 +1,25 @@
-import { Game, IGame, MongooseIGame } from '../models/Game';
-import GameModel from '../models/Game/game.model';
-import { DocumentDefinition } from 'mongoose';
+import { MongooseIGame, GameModel } from '../models/game';
+import { FilterQuery } from 'mongoose';
+import { GetSingleGameParams } from '../models/game/game.types';
 
 const gameService = {
   getGames: async () => {
     const games = await GameModel.find();
     return games;
   },
-  createGame: async (query: DocumentDefinition<MongooseIGame>) => {
-    const { gameDuration, nickname, actions } = query;
-    const newGame = new Game(nickname, gameDuration, actions);
-    await GameModel.create(newGame);
+  getGame: async (params: GetSingleGameParams) => {
+    const { gameId } = params;
+    const singleGame = await GameModel.findById(gameId);
+    return singleGame;
   },
+  createGame: async (query: FilterQuery<MongooseIGame>) => {
+    const { gameDuration, nickname, actions } = query;
+    const game = await GameModel.create({ gameDuration, nickname, actions });
+    return game;
+  },
+  // deleteGames: async (query: <DocumentDefinition<MongooseIGame>) => {
+  //   const
+  // }
 };
 
 export default gameService;
