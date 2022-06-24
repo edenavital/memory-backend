@@ -19,7 +19,5 @@ export interface ISucessfullResponse<T> extends responseCommon {
   data: T;
 }
 
-type ErrorMessage = Message;
-
-export interface IFailRequest extends responseCommon {}
-export interface IFailResponse extends responseCommon {}
+// export interface IFailRequest extends responseCommon {}
+// export interface IFailResponse extends responseCommon {}

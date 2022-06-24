@@ -3,7 +3,8 @@ export const RESPONSE_MESSAGES = {
   FAIL: 'fail',
 } as const;
 
-export const SAMPLE_ROUTES = {
+export const ROUTES = {
+  API: '/api',
   BASE_ROUTE: '/sample',
   LIST: '/samples',
   DEFAULT: '/',
