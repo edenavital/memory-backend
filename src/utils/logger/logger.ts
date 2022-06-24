@@ -5,7 +5,7 @@ dotenv.config();
 
 export let logger: Logger;
 
-if (process.env.NODE_ENV !== 'development') {
+if (process.env.NODE_ENV === 'development') {
   logger = buildDevLogger();
 } else {
   logger = buildProdLogger();

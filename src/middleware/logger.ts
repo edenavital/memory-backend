@@ -14,7 +14,8 @@ export const loggerMiddleware = (req: Request, res: Response, next: NextFunction
     nodeid: process.env.nodeid,
   };
 
-  logger.info(JSON.stringify(msg));
+  logger.info('test');
+  logger.log('request', JSON.stringify(msg));
 
   next();
 };
