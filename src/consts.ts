@@ -5,6 +5,7 @@ export const RESPONSE_MESSAGES = {
 
 export const ROUTES = {
   API: '/api',
+  GAME: '/game',
   BASE_ROUTE: '/sample',
   LIST: '/samples',
   DEFAULT: '/',

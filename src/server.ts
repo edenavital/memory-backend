@@ -2,6 +2,7 @@
 import { app } from './app';
 import { logger } from './utils/';
 import * as dotenv from 'dotenv';
+import { initUtils } from './utils/helpers/helpers';
 dotenv.config();
 
 process
@@ -18,6 +19,7 @@ process
 
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, () => {
+const server = app.listen(PORT, async () => {
   logger.info(`Server is running on port ${PORT}`);
+  await initUtils();
 });

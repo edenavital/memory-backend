@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(loggerMiddleware);
 
-app.use(ROUTES.API, gameRouter);
+app.use(`${ROUTES.API}${ROUTES.GAME}`, gameRouter);
 
 /**
  * A request didn't enter the handlers?

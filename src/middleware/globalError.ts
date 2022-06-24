@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { AppError, GlobalErrorType } from '../utils/AppError';
-import { errorResponse } from '../utils/responseHandlers';
+import { errorResponse } from '../utils/helpers';
 import { logger } from '../utils/logger';
 
 export const expressAsyncWrapper = (fn: Function) => (req: Request, res: Response, next: NextFunction) => {

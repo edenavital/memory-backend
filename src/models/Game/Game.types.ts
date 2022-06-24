@@ -1,6 +1,5 @@
 export interface IGame {
-  timestamp: number;
+  gameDuration: number;
   nickname: string;
   actions: number;
-  date_timestamp: number;
 }
