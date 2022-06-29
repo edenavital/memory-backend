@@ -1,6 +1,5 @@
 import { Response } from 'express';
-import { RESPONSE_MESSAGES } from '../../consts';
-import { ISucessfullResponse, ISucessfullParams } from '../utils.types';
+import { ISucessfullParams } from '../utils.types';
 import { AppError, GlobalErrorType } from '../AppError';
 
 import { StatusCodes } from 'http-status-codes';
@@ -19,7 +18,10 @@ export const errorResponse = (err: GlobalErrorType, res: Response) => {
   if (err instanceof AppError) {
     const { statusCode = StatusCodes.INTERNAL_SERVER_ERROR, getErrorInfo } = err;
 
-    return res.status(statusCode).send(getErrorInfo());
+    return res.status(statusCode).send({
+      sucess: false,
+      ...getErrorInfo(),
+    });
   }
 
   return res.status(500).send({

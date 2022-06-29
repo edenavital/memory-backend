@@ -2,7 +2,7 @@ import express, { Application, Request, Response, NextFunction } from 'express';
 import { AppError } from './utils/AppError/AppError';
 import gameRouter from './routes';
 import { loggerMiddleware, errorHandler } from './middleware';
-import { ROUTES } from './consts';
+import { BASE_ROUTES } from './consts';
 
 export const app: Application = express();
 
@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(loggerMiddleware);
 
-app.use(`${ROUTES.API}${ROUTES.GAME}`, gameRouter);
+app.use(`${BASE_ROUTES.API}${BASE_ROUTES.GAME}`, gameRouter);
 
 /**
  * A request didn't enter the handlers?
